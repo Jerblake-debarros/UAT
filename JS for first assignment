@@ -1,0 +1,24 @@
+//Jermaine Blake-DeBarros
+var countDown = 10;//declaration of var
+document.getElementById("countdownlabel").innerHTML= countDown;   
+setInterval (
+function () { 
+countDown --;//The last three are the countdown function what it does everytime it runs and starting the interval
+if(countDown>=5)
+{
+    document.getElementById("countdownlabel").innerHTML= countDown;//Showing the countdown 
+}
+else if(countDown>=0)
+{
+    document.getElementById("blastofflabel").innerHTML="Half Way Warning";//To display the half way warning
+    document.getElementById("countdownlabel").remove()= countDown;//had to get rid of the numbers because having both words and numbers look bad
+}
+else 
+{
+    alert("Blast Off!");//I still think alerts look best for being something that pops to the user
+    document.getElementById("blastofflabel").remove()="Half Way Warning";//I wanted this to have it remvoed when the alert went off but only removed when the alert is closed twice
+}
+
+
+},1500);//the 1 and a half second I think look best 
+    
