@@ -1,0 +1,34 @@
+<!--Jermaine Blake-DeBarros-->
+<!DOCTYPE html>
+<html lang="en"><!--the two lines are to state that it is an HTML file and its language is english--> 
+<head>
+    <style type="text/css">
+        p  {
+            color: rgb(26, 12, 219); 
+            font-size: xx-large;
+            font-weight: bold;
+            font-family: "Helvetica"; 
+        }
+        </style><!--Changed to a nice blue color and font size and wieght to make it more visible and this is the same font that NASA has used for decades--> 
+  
+</head>
+<body>
+    <main>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName">
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName">
+        </div>
+    </main>
+    <h1>UAT Space Program</h1><!--The Title-->
+    <img src="C:\UATspaceLogo-1.jpg"style= "width:240px; height:240px;"><!--The image source and same pixel width and height as the original-->
+    <p id="countdownlabel"></p>
+    <p id="blastofflabel"></p><!--Both a place for countdown and blastoff-->
+    <button id="b" onclick = countDown() >Start</button><!--button to start the countdown-->
+    <script src="C:\Users\jaybl\Documents\javascript_class\week 3\Timer.js"></script>
+    
+</body>
+</html>
