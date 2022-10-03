@@ -15,7 +15,7 @@
 <body style = "text-align:center;">
     <audio controls autoplay loop> 
         <source src="C:\Users\jaybl\Documents\javascript_class\week 4\Kevin MacLeod [Official] - Brittle Rille - incompetech.com.mp3" type="audio/mpeg">
-    </audio> <!--lines 15 to 17 loop the ambant music but autoplay is not suporrted by the browser-->
+    </audio> <!--lines 15 to 17 loop the ambant music but autoplay is not suported by the browser and music credited to Kevin MacLeod-->
     <main>
         <form name="form1" action="#"> 
             Name: <input type='text' name='name'/>
@@ -71,7 +71,7 @@
             alert("Blast Off!");//I still think alerts look best for being something that pops to the user
             document.getElementById("blastofflabel").remove()="Half Way Warning";
             
-        }}
+        }}<!--change backround color to red to "simulate" a blastoff and get rid of halfway warning-->
     
     
     ,100);}//the 1 and a half second I think look best 
