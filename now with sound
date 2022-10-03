@@ -1,0 +1,81 @@
+<!--Jermaine Blake-DeBarros-->
+<!DOCTYPE html>
+<html lang="en"><!--the two lines are to state that it is an HTML file and its language is english--> 
+<head>
+    <style type="text/css">
+        p  {
+            color: rgb(26, 12, 219); 
+            font-size: xx-large;
+            font-weight: bold;
+            font-family: "Helvetica"; 
+        }
+        
+        </style><!--Changed to a nice blue color and font size and weight to make it more visible and this is the same font that NASA has used for decades--> 
+</head>
+<body style = "text-align:center;">
+    <audio controls autoplay loop> 
+        <source src="C:\Users\jaybl\Documents\javascript_class\week 4\Kevin MacLeod [Official] - Brittle Rille - incompetech.com.mp3" type="audio/mpeg">
+    </audio> <!--lines 15 to 17 loop the ambant music but autoplay is not suporrted by the browser-->
+    <main>
+        <form name="form1" action="#"> 
+            Name: <input type='text' name='name'/>
+            <input class="input" type="submit" name="submit" value="Submit" 
+            onclick="stringLengthCheck(document.form1.name, 8, 10)"/></form>
+    </main><!--lines 17-20 are the input for name and button to start string length check-->
+    <h1>UAT Space Program</h1><!--The Title-->
+    <img src="C:\UATspaceLogo-1.jpg"style= "width:240px; height:240px;"><!--The image source and same pixel width and height as the original-->
+    <p id="countdownlabel"></p>
+    <p id="blastofflabel"></p><!--Both a place for countdown and blastoff-->
+    <input type="text" id="pin" placeholder="Badge Number" maxlength="3" size="9">
+    <button class="button" onclick = "countDown()">Click Me</button><!--button to start the countdown-->
+    <script> 
+    var count = 10;//declaration of var
+    var myMusic;
+        function stringLengthCheck(name, minlength, maxlength)
+            {
+        var mnlen = 1;
+        var mxlen = 20;
+ 
+        if(name.value.length<mnlen || name.value.length> mxlen)
+        { 
+        alert("Name should be " +mnlen+ " to " +mxlen+ " characters.");
+        return false;
+        }//lines 34-42 check length of string to make sure not to long or short
+        else
+        { 
+            button.disabled = false;//supposed to reenable the button but will only do it for one tick
+            return true;
+        }
+            }    
+        let input = document.querySelector(".input");
+         let button = document.querySelector(".button");
+        button.disabled = false; //setting button state to disabled but when enabled only enables for one tick
+        input.addEventListener("change", stringLengthCheck);
+       
+        document.getElementById("countdownlabel").innerHTML= count;   
+        function countDown() { 
+            setInterval (function (){
+        count --;//The last three are the countdown function what it does everytime it runs and starting the interval
+        if(count>=5)
+        {
+            document.getElementById("countdownlabel").innerHTML= count;//Showing the countdown 
+        }
+        else if(count>=0)
+        {
+            document.getElementById("blastofflabel").innerHTML="Half Way Warning";//To display the half way warning
+            document.getElementById("countdownlabel").remove()= count;//had to get rid of the numbers because having both words and numbers look bad
+        }
+        else 
+        {
+            document.body.style.background = "red";
+            alert("Blast Off!");//I still think alerts look best for being something that pops to the user
+            document.getElementById("blastofflabel").remove()="Half Way Warning";
+            
+        }}
+    
+    
+    ,100);}//the 1 and a half second I think look best 
+        </script>
+    
+</body>
+</html>
