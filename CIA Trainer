@@ -1,0 +1,94 @@
+// CIA Trainer.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+
+using namespace std;
+//putting the points before the main might be sacrilegious but makes it work better so it doesnt get rewritten with every loop
+int points = 3;
+
+int main()
+{     
+    cout << "\t\t\tWelcome to your CIA Training or GVH!\n\n";
+    cout << "In order for us to find and deflect attempts to access our data we are training\nyou to be able to find the keywords that are scambled and to unscramble them\nEnter 'hint' for a hint.\nEnter 'quit' to quit the game.\n\n";
+
+    string guess;
+    enum fields { WORD, HINT, NUM_FIELDS };
+    const int NUM_WORDS = 10;
+    const string WORDS[NUM_WORDS][NUM_FIELDS] =
+    //These are all the words that can be chosen
+    {
+        {"wall", "Do you feel like you want to bang your head against something?"},
+        {"door", "When one is closed another opens"},
+        {"potato", "Come in many different forms including couch"},
+        {"animal", "The two categories of all life are plants and ..."},
+        {"training", "Its what you are doing right now "},
+        {"freedom", "What we are all fighting for o7"},
+        {"gorilla", "Donkey Kong is one"},
+        {"window", "On buildings and cars you can see through them"},
+        {"grass", "Is always greener on the other side"},
+        {"forensic", "A crime show is based on this"}
+    };
+
+    int d = 0;
+    do
+    {
+        //createing a word to rand pick 
+        srand(static_cast<unsigned int>(time(0)));
+        int choice = (rand() % NUM_WORDS);
+        string word = WORDS[choice][WORD];//word to guess
+        string hint = WORDS[choice][HINT];//hint for the word
+        string jumble = word;
+        int length = jumble.size();
+        
+        //for lines are used to randomize the word
+        for (int i = 0; i < length; i++)
+        {
+            int index1 = (rand() % length);
+            int index2 = (rand() % length);
+            char temp = jumble[index1];
+            jumble[index1] = jumble[index2];
+            jumble[index2] = temp;
+        }
+        
+        cout << "The jumble is: " << jumble;
+        cout << "\n\nYour guess: ";
+        cin >> guess;
+        
+        //the below lines are used to take care of the guess string and give feedback to user
+        while ((guess != word) && (guess != "quit"))
+        {
+            if (guess == "hint")
+            {
+                cout << hint;
+            }
+            else
+            {
+                cout << "Sorry, that's not it";
+                points--;
+            }
+            cout << "\n\nYour guess: ";
+            cin >> guess;
+        }
+
+        if (guess == word)
+        {
+            cout << "\nThat's it! you guessed it!\n";
+        }
+        cout << "Your current score: " << points << "/3" << endl;// to show the score during the test not sure its necessary with the score being at the end
+        d++;
+    } while (d < 3);
+    if (points == 0) 
+    {
+        cout << "You have failed contact your supervisor immediately" << endl;
+    }
+    else
+    {
+        cout << "In the end you scored: " << points << "/3 please ask your supervisor for your next step" << endl;//show an end score last
+    }
+    return 0;
+}
